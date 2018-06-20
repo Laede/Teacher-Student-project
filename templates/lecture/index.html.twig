@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lecture index{% endblock %}
+
+{% block body %}
+    <h1>Lecture index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LectureName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lecture in lectures %}
+            <tr>
+                <td>{{ lecture.id }}</td>
+                <td>{{ lecture.lectureName }}</td>
+                <td>
+                    <a href="{{ path('lecture_show', {'id': lecture.id}) }}">show</a>
+                    <a href="{{ path('lecture_edit', {'id': lecture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lecture_new') }}">Create new</a>
+{% endblock %}

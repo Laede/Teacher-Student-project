@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lecture{% endblock %}
+
+{% block body %}
+    <h1>Lecture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lecture.id }}</td>
+            </tr>
+            <tr>
+                <th>LectureName</th>
+                <td>{{ lecture.lectureName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lecture_index') }}">back to list</a>
+
+    <a href="{{ path('lecture_edit', {'id': lecture.id}) }}">edit</a>
+
+    {{ include('lecture/_delete_form.html.twig') }}
+{% endblock %}
